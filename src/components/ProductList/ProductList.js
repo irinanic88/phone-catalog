@@ -7,8 +7,10 @@ const ProductList = ({products}) => {
 
     return(
         <ul className={styles.productList}>
+
             {products.map((product) => {
                 const {id, name, price, imageURL} = product;
+
                 return (
                     <li key={id} className={styles.productList__item}>
                         <img src={imageURL} alt={name} className={styles.productList__img}/>
@@ -16,7 +18,6 @@ const ProductList = ({products}) => {
                             <h2 className={styles.productList__name}>{name}</h2>
                             <p className={styles.productList__price}>{`${price} ${currency}`}</p>
                         </div>
-
                     </li>
                 )
             })}
