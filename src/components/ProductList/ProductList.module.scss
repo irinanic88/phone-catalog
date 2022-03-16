@@ -1,0 +1,59 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
+
+.productList {
+  padding: 10px;
+  @include column($gap: 10px);
+
+  &__item {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    background-color: $light-grey;
+    border-radius: 5px;
+    border: 1px solid $dark-grey;
+    cursor: pointer;
+
+    @include responsive(phone) {
+      padding: 20px;
+      gap: 30px;
+    }
+
+    @include responsive(tablet) {
+      margin: 0 auto;
+      width: 700px;
+    }
+  }
+
+  &__info {
+    @include column($gap: 10px);
+  }
+
+  &__img {
+    width: 120px;
+    height: 120px;
+
+    @include responsive(phone) {
+      width: 200px;
+      height: 200px;
+    }
+  }
+
+  &__name {
+    font-size: 20px;
+    font-weight: 400;
+
+    @include responsive(phone) {
+      font-size: 28px;
+    }
+  }
+
+  &__price {
+    font-size: 18px;
+    font-weight: 800;
+    color: $red;
+  }
+
+}
