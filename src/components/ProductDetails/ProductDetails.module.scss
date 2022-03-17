@@ -1,0 +1,41 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
+
+.productDetails {
+  @include column($gap: 30px);
+
+  @include responsive(phone) {
+    flex-direction: row;
+  }
+
+  &__info {
+    @include column($gap: 15px);
+  }
+
+  &__img {
+    width: 100%;
+
+    @include responsive(phone) {
+      width: 350px;
+      height: 350px;
+    }
+  }
+
+  &__title {
+    font-size: 28px;
+  }
+
+  &__price {
+    font-size: 20px;
+    color: $red;
+  }
+
+  td {
+    padding: 3px 0;
+  }
+
+  tr > td:first-child {
+    font-weight: bold;
+  }
+
+}

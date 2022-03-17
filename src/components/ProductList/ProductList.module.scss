@@ -2,7 +2,6 @@
 @import '../../assets/scss/mixins';
 
 .productList {
-  padding: 10px;
   @include column($gap: 10px);
 
   &__item {

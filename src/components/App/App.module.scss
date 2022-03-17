@@ -1,14 +1,20 @@
 @import '../../assets/scss/mixins';
 
 .app {
+  padding: 0 10px;
+  margin-bottom: 50px;
 
   @include responsive(tablet) {
-    margin: 0 auto;
+    margin: 0 auto 50px;
     width: 700px;
   }
 
+  @include responsive(laptop) {
+    width: 1000px;
+  }
+
   &__header {
-    margin: 30px 0;
+    margin: 30px 0 50px;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,10 +1,9 @@
 import React from 'react';
 import { products } from '../../mockData';
+import { currency } from '../../utils/variables';
 import styles from './ProductList.module.scss';
 
 const ProductList = () => {
-
-    const currency = '€';
 
     return(
         <ul className={styles.productList}>
