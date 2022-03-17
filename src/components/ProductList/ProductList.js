@@ -1,7 +1,8 @@
 import React from 'react';
+import { products } from '../../mockData';
 import styles from './ProductList.module.scss';
 
-const ProductList = ({products}) => {
+const ProductList = () => {
 
     const currency = '€';
 
