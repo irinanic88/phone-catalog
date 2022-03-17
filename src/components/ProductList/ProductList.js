@@ -6,7 +6,7 @@ import styles from './ProductList.module.scss';
 const ProductList = () => {
 
     return(
-        <ul className={styles.productList}>
+        <ul className={styles.productList} data-id="product-list">
 
             {products.map((product) => {
                 const {id, name, price, imageURL} = product;

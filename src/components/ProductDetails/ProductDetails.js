@@ -18,7 +18,7 @@ const ProductDetails = () => {
     } = product;
 
     return (
-        <div className={styles.productDetails}>
+        <div className={styles.productDetails} data-id="product-details">
             <img src={imageURL} alt={name} className={styles.productDetails__img}/>
 
             <div className={styles.productDetails__info}>
