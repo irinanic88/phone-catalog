@@ -20,11 +20,6 @@
       padding: 20px;
       gap: 30px;
     }
-
-    @include responsive(tablet) {
-      margin: 0 auto;
-      width: 700px;
-    }
   }
 
   &__info {
