@@ -6,22 +6,25 @@ import styles from './ProductList.module.scss';
 const ProductList = () => {
 
     return(
-        <ul className={styles.productList} data-id="product-list">
+        <div>
+            <ul className={styles.productList} data-id="product-list">
 
-            {products.map((product) => {
-                const {id, name, price, imageURL} = product;
+                {products.map((product) => {
+                    const {id, name, price, imageURL} = product;
 
-                return (
-                    <li key={id} className={styles.productList__item}>
-                        <img src={imageURL} alt={name} className={styles.productList__img}/>
-                        <div className={styles.productList__info}>
-                            <h2 className={styles.productList__name}>{name}</h2>
-                            <p className={styles.productList__price}>{`${price} ${currency}`}</p>
-                        </div>
-                    </li>
-                )
-            })}
-        </ul>
+                    return (
+                        <li key={id} className={styles.productList__item}>
+                            <img src={imageURL} alt={name} className={styles.productList__img}/>
+                            <div className={styles.productList__info}>
+                                <h2 className={styles.productList__name}>{name}</h2>
+                                <p className={styles.productList__price}>{`${price} ${currency}`}</p>
+                            </div>
+                        </li>
+                    )
+                })}
+            </ul>
+        </div>
+
     )
 }
 
