@@ -1,4 +1,5 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import { product } from '../../mockData';
 import { currency } from '../../utils/variables';
 import styles from './ProductDetails.module.scss';
@@ -16,6 +17,9 @@ const ProductDetails = () => {
         processor,
         ram
     } = product;
+
+    const { productId } = useParams();
+    console.log(productId);
 
     return (
         <div className={styles.productDetails} data-id="product-details">
