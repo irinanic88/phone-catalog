@@ -6,11 +6,11 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  list-style-type: none;
 
   &__item {
     padding: 30px;
     width: 100%;
-    @include column($gap: 15px);
     background-color: $light-grey;
     border-radius: 5px;
     border: 1px solid $dark-grey;
@@ -20,7 +20,11 @@
       padding: 20px;
       width: 40%;
     }
+  }
 
+  &__link {
+    @include column($gap: 15px);
+    text-decoration: none;
   }
 
   &__info {
