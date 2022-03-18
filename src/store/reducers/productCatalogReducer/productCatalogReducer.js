@@ -1,4 +1,4 @@
-import { LOAD_PRODUCT_LIST } from '../actionTypes';
+import { LOAD_PRODUCT_LIST } from '../../actionTypes';
 
 const productCatalogReducer = (store = [], action) => {
     const {type, data} = action;

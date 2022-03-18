@@ -1,4 +1,4 @@
-import { LOAD_PRODUCT_DETAILS } from '../actionTypes';
+import { LOAD_PRODUCT_DETAILS } from '../../actionTypes';
 
 const detailedProductReducer = (store = {}, action) => {
     const {type, data} = action;
