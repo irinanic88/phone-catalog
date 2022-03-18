@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import useActions from '../../hooks/useActions';
 import { Link } from 'react-router-dom';
 import { currency } from '../../utils/variables';
-import { productsSelector } from '../../store/reducers/selectors';
+import { productsSelector } from '../../store/selectors';
 import styles from './ProductList.module.scss';
 
 const ProductList = () => {

@@ -5,12 +5,12 @@ import {
     SUCCESS,
     FAILURE
 } from './actionTypes';
-import { loadProductListURL } from '../utils/variables';
+import { loadProductListURL, loadProductDetailsURL } from '../utils/variables';
 
 export const loadProductList = () => async (dispatch) => {
     dispatch ({
         type: LOAD_PRODUCT_LIST + REQUEST,
-        fetchLoadingState: REQUEST
+        fetchLoadingState: REQUEST,
     });
 
     try {
@@ -30,10 +30,25 @@ export const loadProductList = () => async (dispatch) => {
     }
 }
 
+export const loadProductDetails = (id) => async (dispatch) => {
+    dispatch ({
+        type: LOAD_PRODUCT_DETAILS + REQUEST,
+        fetchLoadingState: REQUEST,
+    });
 
+    try {
+        const data = await fetch(loadProductDetailsURL(id)).then(res => res.json());
 
-
-export const loadProductDetails = (id) => ({
-    type: LOAD_PRODUCT_DETAILS,
-    id,
-});
+        dispatch ({
+            type: LOAD_PRODUCT_DETAILS + SUCCESS,
+            fetchLoadingState: SUCCESS,
+            data,
+        });
+    } catch (error) {
+        dispatch ({
+            type: LOAD_PRODUCT_DETAILS + FAILURE,
+            fetchLoadingState: FAILURE,
+            error,
+        });
+    }
+}

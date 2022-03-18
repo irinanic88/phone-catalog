@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { product } from '../../mockData';
+import { useSelector } from 'react-redux';
+import useActions from '../../hooks/useActions';
+import { productDetailsSelector } from '../../store/selectors';
 import { currency } from '../../utils/variables';
 import styles from './ProductDetails.module.scss';
 
+
 const ProductDetails = () => {
+    const { productId } = useParams();
+    const { loadProductDetails } = useActions();
+
+    useEffect(() => {
+        loadProductDetails(productId);
+    }, []);
+
+    const product = useSelector(productDetailsSelector);
+
     const {
         id,
         name,
@@ -18,8 +30,6 @@ const ProductDetails = () => {
         ram
     } = product;
 
-    const { productId } = useParams();
-    console.log(productId);
 
     return (
         <div className={styles.productDetails} data-id="product-details">
