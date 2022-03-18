@@ -1,17 +1,18 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import useActions from '../../hooks/useActions';
 import { Link } from 'react-router-dom';
 import { currency } from '../../utils/variables';
-import { loadProductList } from '../../store/actions';
 import { productsSelector } from '../../store/reducers/selectors';
 import styles from './ProductList.module.scss';
 
 const ProductList = () => {
-    const dispatch = useDispatch();
-    const products = productsSelector;
+    const { loadProductList } = useActions();
+
+    const products = useSelector(productsSelector);
 
     useEffect(() => {
-        dispatch (loadProductList());
+        loadProductList();
     }, []);
 
     return(
