@@ -1,6 +1,6 @@
-import { LOAD_PRODUCT_LIST } from '../actionTypes';
+import { LOAD_PRODUCT_LIST } from '../../actionTypes';
 
-const productCatalogReducer = (store = [], action) => {
+const productCatalogReducer = (state = [], action) => {
     const {type, data} = action;
 
     switch (type) {
@@ -8,7 +8,7 @@ const productCatalogReducer = (store = [], action) => {
             return [...data];
 
         default:
-            return store;
+            return state;
 
     }
 }
