@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import useActions from '../../hooks/useActions';
 import { Link } from 'react-router-dom';
-import { products } from '../../mockData';
 import { currency } from '../../utils/variables';
+import { productsSelector } from '../../store/selectors';
 import styles from './ProductList.module.scss';
 
 const ProductList = () => {
+    const { loadProductList } = useActions();
+
+    const products = useSelector(productsSelector);
+
+    useEffect(() => {
+        loadProductList();
+    }, []);
 
     return(
         <div>
