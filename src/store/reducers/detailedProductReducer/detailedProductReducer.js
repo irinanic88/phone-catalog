@@ -1,16 +1,16 @@
 import { LOAD_PRODUCT_DETAILS } from '../../actionTypes';
 
-const detailedProductReducer = (store = {}, action) => {
+const detailedProductReducer = (state = {}, action) => {
     const {type, data} = action;
 
     switch (type) {
         case LOAD_PRODUCT_DETAILS:
             return {
-                ...store,
+                ...state,
                 [data.id]: data,
             }
         default:
-            return store;
+            return state;
     }
 }
 

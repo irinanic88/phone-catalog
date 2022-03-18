@@ -1,7 +1,8 @@
 import detailedProductReducer from './detailedProductReducer';
 import { LOAD_PRODUCT_DETAILS } from '../../actionTypes';
 
-const mockStore = {};
+const mockState = {};
+
 const mockActionWithLoadProductDetailsType = {
     type: LOAD_PRODUCT_DETAILS,
     data: {id: '123'},
@@ -12,16 +13,16 @@ const mockActionWithDifferentType = {
 
 const mockActionWithoutType = {};
 
-describe('productCatalogReducer', () => {
+describe('detailedProductReducer', () => {
     test('should return new array with data if action type is LOAD_PRODUCT_DETAILS', () => {
-        expect(detailedProductReducer(mockStore, mockActionWithLoadProductDetailsType)).toEqual({'123': {id: '123'}});
+        expect(detailedProductReducer(mockState, mockActionWithLoadProductDetailsType)).toEqual({'123': {id: '123'}});
     });
 
-    test('should return store if action type is not LOAD_PRODUCT_DETAILS', () => {
-        expect(detailedProductReducer(mockStore, mockActionWithDifferentType)).toEqual({});
+    test('should return state if action type is not LOAD_PRODUCT_DETAILS', () => {
+        expect(detailedProductReducer(mockState, mockActionWithDifferentType)).toEqual(mockState);
     });
 
-    test('should return store if there is no action type', () => {
-        expect(detailedProductReducer(mockStore, mockActionWithoutType)).toEqual({});
+    test('should return state if there is no action type', () => {
+        expect(detailedProductReducer(mockState, mockActionWithoutType)).toEqual(mockState);
     });
 })
