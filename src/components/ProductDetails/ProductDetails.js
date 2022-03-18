@@ -10,15 +10,21 @@ import styles from './ProductDetails.module.scss';
 const ProductDetails = () => {
     const { productId } = useParams();
     const { loadProductDetails } = useActions();
+    const product = useSelector(productDetailsSelector(productId));
 
     useEffect(() => {
-        loadProductDetails(productId);
-    }, []);
+        if (!product) {
+            loadProductDetails(productId);
+        }
+    }, [productId]);
 
-    const product = useSelector(productDetailsSelector);
+    if (!product) {
+        return (
+            <div />
+        )
+    }
 
     const {
-        id,
         name,
         manufacturer,
         description,
@@ -29,7 +35,6 @@ const ProductDetails = () => {
         processor,
         ram
     } = product;
-
 
     return (
         <div className={styles.productDetails} data-id="product-details">
