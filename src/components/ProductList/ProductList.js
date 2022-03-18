@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { products } from '../../mockData';
 import { currency } from '../../utils/variables';
+import { loadProductList } from '../../store/actions';
 import styles from './ProductList.module.scss';
 
 const ProductList = () => {
+    const dispatch = useDispatch();
+    const products = useSelector((state) => state.products);
+
+    useEffect(() => {
+        dispatch (loadProductList());
+    }, []);
 
     return(
         <div>
