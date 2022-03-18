@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { currency } from '../../utils/variables';
 import { loadProductList } from '../../store/actions';
+import { productsSelector } from '../../store/reducers/selectors';
 import styles from './ProductList.module.scss';
 
 const ProductList = () => {
     const dispatch = useDispatch();
-    const products = useSelector((state) => state.products);
+    const products = productsSelector;
 
     useEffect(() => {
         dispatch (loadProductList());
