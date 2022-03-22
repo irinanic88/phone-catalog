@@ -8,17 +8,17 @@ const loadingReducer = (state = initialState, action) => {
     const { fetchLoadingState } = action;
 
     switch (fetchLoadingState) {
-        case REQUEST:
+        case `${REQUEST}`:
             return {
                 ...state,
                 loading: true,
             }
-        case SUCCESS:
+        case `${SUCCESS}`:
             return {
                 ...state,
                 loading: false,
             }
-        case FAILURE:
+        case `${FAILURE}`:
             return {
                 ...state,
                 loading: false,

@@ -4,7 +4,7 @@ const detailedProductReducer = (state = {}, action) => {
     const {type, data} = action;
 
     switch (type) {
-        case LOAD_PRODUCT_DETAILS + SUCCESS:
+        case `${LOAD_PRODUCT_DETAILS}__${SUCCESS}`:
             return {
                 ...state,
                 [data.id]: data,
