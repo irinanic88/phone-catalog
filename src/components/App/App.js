@@ -13,18 +13,21 @@ const App = () => {
 
     return (
         <div data-id="app" className={styles.app}>
-            <h1 className={styles.app__header}>Phone catalog</h1>
+            <header>
+                <h1 className={styles.app__header}>Phone catalog</h1>
+            </header>
+            <main>
+                { isLoading && <Loader /> }
 
-            { isLoading && <Loader /> }
-
-            <Routes>
-                <Route index element={<ProductList />}/>
-                <Route path="products">
+                <Routes>
                     <Route index element={<ProductList />}/>
-                    <Route path=":productId" element={<ProductDetails />}/>
-                </Route>
-            </Routes>
+                    <Route path="products">
+                        <Route index element={<ProductList />}/>
+                        <Route path=":productId" element={<ProductDetails />}/>
+                    </Route>
+                </Routes>
 
+            </main>
         </div>
     )
 }

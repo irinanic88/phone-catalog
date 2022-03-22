@@ -9,6 +9,7 @@ import styles from './ProductDetails.module.scss';
 
 const ProductDetails = () => {
     const { productId } = useParams();
+
     const { loadProductDetails } = useActions();
     const product = useSelector(productDetailsSelector(productId));
 
@@ -43,8 +44,8 @@ const ProductDetails = () => {
             <div className={styles.productDetails__info}>
                 <h2 className={styles.productDetails__title}>{`${manufacturer} ${name} ${color}`}</h2>
 
-                <p>
-                    Price: <span className={styles.productDetails__price}>{`${price} ${currency}`}</span>
+                <p className={styles.productDetails__price}>
+                    Price: <span className={styles.productDetails__price_amount}>{`${price} ${currency}`}</span>
                 </p>
 
                 <p className={styles.productDetails__description}>{description}</p>

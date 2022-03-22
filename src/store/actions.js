@@ -9,22 +9,22 @@ import { loadProductListURL, loadProductDetailsURL } from '../utils/variables';
 
 export const loadProductList = () => async (dispatch) => {
     dispatch ({
-        type: LOAD_PRODUCT_LIST + REQUEST,
-        fetchLoadingState: REQUEST,
+        type: `${LOAD_PRODUCT_LIST}__${REQUEST}`,
+        fetchLoadingState: `${REQUEST}`,
     });
 
     try {
         const data = await fetch(loadProductListURL).then(res => res.json());
 
         dispatch ({
-            type: LOAD_PRODUCT_LIST + SUCCESS,
-            fetchLoadingState: SUCCESS,
+            type: `${LOAD_PRODUCT_LIST}__${SUCCESS}`,
+            fetchLoadingState: `${SUCCESS}`,
             data,
         })
     } catch (error) {
         dispatch ({
-            type: LOAD_PRODUCT_LIST + FAILURE,
-            fetchLoadingState: FAILURE,
+            type: `${LOAD_PRODUCT_LIST}__${FAILURE}`,
+            fetchLoadingState: `${FAILURE}`,
             error,
         })
     }
@@ -32,22 +32,22 @@ export const loadProductList = () => async (dispatch) => {
 
 export const loadProductDetails = (id) => async (dispatch) => {
     dispatch ({
-        type: LOAD_PRODUCT_DETAILS + REQUEST,
-        fetchLoadingState: REQUEST,
+        type: `${LOAD_PRODUCT_DETAILS}__${REQUEST}`,
+        fetchLoadingState: `${REQUEST}`,
     });
 
     try {
         const data = await fetch(loadProductDetailsURL(id)).then(res => res.json());
 
         dispatch ({
-            type: LOAD_PRODUCT_DETAILS + SUCCESS,
-            fetchLoadingState: SUCCESS,
+            type: `${LOAD_PRODUCT_DETAILS}__${SUCCESS}`,
+            fetchLoadingState: `${SUCCESS}`,
             data,
         });
     } catch (error) {
         dispatch ({
-            type: LOAD_PRODUCT_DETAILS + FAILURE,
-            fetchLoadingState: FAILURE,
+            type: `${LOAD_PRODUCT_DETAILS}__${FAILURE}`,
+            fetchLoadingState: `${FAILURE}`,
             error,
         });
     }

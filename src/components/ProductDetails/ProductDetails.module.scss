@@ -13,17 +13,22 @@
 
   }
 
-  &__info {
-    @include column($gap: 15px);
-  }
-
   &__img {
     width: 100%;
 
     @include responsive(phone) {
+      width: 250px;
+      height: 250px;
+    }
+
+    @include responsive(tablet) {
       width: 350px;
       height: 350px;
     }
+  }
+
+  &__info {
+    overflow-x: auto;
   }
 
   &__title {
@@ -31,8 +36,21 @@
   }
 
   &__price {
-    font-size: 20px;
-    color: $red;
+    margin-top: 15px;
+
+    &_amount {
+      font-size: 20px;
+      color: $red;
+    }
+  }
+
+  &__description {
+    margin-top: 15px;
+  }
+
+  table {
+    margin-top: 15px;
+    padding-bottom: 15px;
   }
 
   td {
@@ -40,6 +58,7 @@
   }
 
   tr > td:first-child {
+    padding-right: 10px;
     font-weight: bold;
   }
 
