@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import useActions from '../../hooks/useActions';
 import { productDetailsSelector } from '../../store/selectors';
 import { currency } from '../../utils/variables';
+import Button from '../Button/Button';
 import styles from './ProductDetails.module.scss';
 
 
 const ProductDetails = () => {
     const { productId } = useParams();
+    const navigate = useNavigate();
 
     const { loadProductDetails } = useActions();
     const product = useSelector(productDetailsSelector(productId));
@@ -36,6 +38,10 @@ const ProductDetails = () => {
         processor,
         ram
     } = product;
+
+    const handleBackToListClick = () => {
+        navigate('/products');
+    }
 
     return (
         <div className={styles.productDetails} data-id="product-details">
@@ -80,6 +86,10 @@ const ProductDetails = () => {
                         </tbody>
                     </table>
                 </>
+
+                <div role="button" className={styles.productDetails__backToList}>
+                    <Button name={'Back to list'} handleClick={handleBackToListClick} />
+                </div>
             </div>
 
         </div>
