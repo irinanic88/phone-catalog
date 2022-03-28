@@ -14,7 +14,13 @@ export const loadProductList = () => async (dispatch) => {
     });
 
     try {
-        const data = await fetch(loadProductListURL).then(res => res.json());
+        const data = await fetch(loadProductListURL).then(res => {
+            if (res.status < 300) {
+                return res.json();
+            } else {
+                throw new Error('Cannot load product list');
+            }
+        });
 
         dispatch ({
             type: `${LOAD_PRODUCT_LIST}__${SUCCESS}`,
@@ -37,7 +43,13 @@ export const loadProductDetails = (id) => async (dispatch) => {
     });
 
     try {
-        const data = await fetch(loadProductDetailsURL(id)).then(res => res.json());
+        const data = await fetch(loadProductDetailsURL(id)).then(res => {
+            if (res.status < 300) {
+                return res.json();
+            } else {
+                throw new Error('Product is not found');
+            }
+        });
 
         dispatch ({
             type: `${LOAD_PRODUCT_DETAILS}__${SUCCESS}`,
