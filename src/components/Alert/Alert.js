@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import useActions from '../../hooks/useActions';
+import { ReactComponent as CloseIcon} from '../../assets/icons/Close.svg';
 import styles from './Alert.module.scss';
 
 
@@ -21,7 +22,9 @@ const Alert = ({message}) => {
     return (
         <div className={styles.alert} data-id="alert">
             <p className={styles.alert__error}>{message}</p>
-            <button onClick={() => closeAlert()} name={'close-alert'} className={styles.alert__close}>x</button>
+            <button onClick={() => closeAlert()} name={'close-alert'} className={styles.alert__close}>
+                <CloseIcon className={styles.alert__closeIcon} />
+            </button>
         </div>
 
     )

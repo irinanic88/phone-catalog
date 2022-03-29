@@ -20,7 +20,12 @@
     border: none;
     color: $red;
     cursor: pointer;
+
+    & * {
+      fill: $red;
+    }
   }
+
 }
 
 
