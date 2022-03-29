@@ -19,7 +19,7 @@ const Alert = ({message}) => {
 
 
     return (
-        <div className={styles.alert}>
+        <div className={styles.alert} data-id="alert">
             <p className={styles.alert__error}>{message}</p>
             <button onClick={() => closeAlert()} name={'close-alert'} className={styles.alert__close}>x</button>
         </div>
