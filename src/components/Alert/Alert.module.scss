@@ -1,0 +1,35 @@
+@import '../../assets/scss/variables';
+
+.alert {
+  position: relative;
+
+  &__error {
+    padding: 10px;
+    border: 1px solid $red;
+    background-color: $light-grey;
+    text-align: center;
+    font-style: italic;
+    animation: smooth-appear .5s linear;
+  }
+
+  &__close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    color: $red;
+    cursor: pointer;
+  }
+}
+
+
+@keyframes smooth-appear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}

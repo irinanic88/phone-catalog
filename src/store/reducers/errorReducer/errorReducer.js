@@ -1,4 +1,4 @@
-import {LOAD_PRODUCT_LIST, LOAD_PRODUCT_DETAILS, FAILURE, SUCCESS} from '../../actionTypes';
+import {LOAD_PRODUCT_LIST, LOAD_PRODUCT_DETAILS, FAILURE, CLOSE_ALERT} from '../../actionTypes';
 
 const errorReducer = (state = {}, action) => {
     const { type, error } = action;
@@ -8,6 +8,9 @@ const errorReducer = (state = {}, action) => {
 
         case `${LOAD_PRODUCT_DETAILS}__${FAILURE}`:
             return { error };
+
+        case `${CLOSE_ALERT}`:
+            return {};
 
         default:
             return state;

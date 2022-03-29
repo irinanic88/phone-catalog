@@ -3,7 +3,8 @@ import {
     LOAD_PRODUCT_DETAILS,
     REQUEST,
     SUCCESS,
-    FAILURE
+    FAILURE,
+    CLOSE_ALERT
 } from './actionTypes';
 import { loadProductListURL, loadProductDetailsURL } from '../utils/variables';
 
@@ -20,6 +21,8 @@ export const loadProductList = () => async (dispatch) => {
             } else {
                 throw new Error('Cannot load product list');
             }
+        }).catch(() => {
+            throw new Error('Cannot load product list. Please, verify your internet connection');
         });
 
         dispatch ({
@@ -64,3 +67,7 @@ export const loadProductDetails = (id) => async (dispatch) => {
         });
     }
 }
+
+export const closeAlert = () => ({
+    type: `${CLOSE_ALERT}`,
+});
