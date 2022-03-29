@@ -44,6 +44,7 @@ const ProductDetails = () => {
     }
 
     return (
+
         <div className={styles.productDetails} data-id="product-details">
             <img src={imageURL} alt={name} className={styles.productDetails__img}/>
 
